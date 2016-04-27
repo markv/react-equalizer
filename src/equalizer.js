@@ -66,7 +66,7 @@ export default class Equalizer extends Component {
   }
 
   updateChildrenHeights() {
-    const { property, byRow, enabled } = this.props
+    const { property, byRow, enabled, ...other } = this.props
     const node = ReactDOM.findDOMNode(this)
 
     if (!enabled(this, node)) {
@@ -89,7 +89,7 @@ export default class Equalizer extends Component {
 
   render() {
     return (
-      <div className={this.props.className ? this.props.className : null}>
+      <div {...other}>
         {this.props.children}
       </div>
     )
